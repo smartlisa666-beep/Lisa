@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하하매스 교육 플랫폼 - 수업자료실</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Global Navigation Bar -->
+    <nav class="gnb">
+        <div class="gnb-container">
+            <div class="gnb-logo" onclick="location.href='index.html'">
+                <i class="fas fa-graduation-cap"></i>
+                <span>하하매스</span>
+            </div>
+            <ul class="gnb-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> 홈</a></li>
+                <li><a href="textbook.html"><i class="fas fa-book"></i> 교과서</a></li>
+                <li><a href="assignment.html"><i class="fas fa-tasks"></i> 과제</a></li>
+                <li><a href="evaluation.html"><i class="fas fa-clipboard-check"></i> 평가</a></li>
+                <li><a href="materials.html" class="active"><i class="fas fa-folder-open"></i> 수업자료실</a></li>
+            </ul>
+            <div class="gnb-user">
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>hahamath066-t</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-folder-open"></i>
+                수업자료실
+            </h1>
+            <button class="btn btn-primary" onclick="uploadMaterial()">
+                <i class="fas fa-upload"></i>
+                자료 업로드
+            </button>
+        </div>
+
+        <!-- Recommended Materials Carousel -->
+        <div class="card materials-carousel">
+            <div class="card-header">
+                <h2><i class="fas fa-star"></i> 최근 수업 추천 자료</h2>
+            </div>
+            <div class="card-body">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="material-card-large" data-category="textbook">
+                            <div class="material-thumbnail">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="material-info">
+                                <div class="material-tags">
+                                    <span class="tag">교과서</span>
+                                    <span class="tag">1.큰 수</span>
+                                </div>
+                                <h3 class="material-title">십만, 백만, 천만 알아보기</h3>
+                                <div class="material-stats">
+                                    <span><i class="fas fa-heart"></i> 45</span>
+                                    <span><i class="fas fa-eye"></i> 182</span>
+                                    <span><i class="fas fa-download"></i> 28</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="material-card-large" data-category="assignment">
+                            <div class="material-thumbnail" style="background: linear-gradient(135deg, #FFA94D 0%, #FF6B6B 100%);">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="material-info">
+                                <div class="material-tags">
+                                    <span class="tag">과제 자료</span>
+                                    <span class="tag">2.각도</span>
+                                </div>
+                                <h3 class="material-title">각도 측정 연습 문제</h3>
+                                <div class="material-stats">
+                                    <span><i class="fas fa-heart"></i> 38</span>
+                                    <span><i class="fas fa-eye"></i> 156</span>
+                                    <span><i class="fas fa-download"></i> 22</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="material-card-large" data-category="evaluation">
+                            <div class="material-thumbnail" style="background: linear-gradient(135deg, #6BCF7F 0%, #2C3E7B 100%);">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="material-info">
+                                <div class="material-tags">
+                                    <span class="tag">평가</span>
+                                    <span class="tag">3.곱셈과 나눗셈</span>
+                                </div>
+                                <h3 class="material-title">곱셈 나눗셈 평가 문제</h3>
+                                <div class="material-stats">
+                                    <span><i class="fas fa-heart"></i> 52</span>
+                                    <span><i class="fas fa-eye"></i> 203</span>
+                                    <span><i class="fas fa-download"></i> 35</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="material-card-large" data-category="textbook">
+                            <div class="material-thumbnail">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="material-info">
+                                <div class="material-tags">
+                                    <span class="tag">교과서</span>
+                                    <span class="tag">4.삼각형</span>
+                                </div>
+                                <h3 class="material-title">삼각형 분류하기</h3>
+                                <div class="material-stats">
+                                    <span><i class="fas fa-heart"></i> 41</span>
+                                    <span><i class="fas fa-eye"></i> 167</span>
+                                    <span><i class="fas fa-download"></i> 25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-layout">
+            <!-- Filter Sidebar -->
+            <aside class="filter-sidebar">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="filter-group">
+                            <h3><i class="fas fa-tags"></i> 카테고리</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cat-textbook" value="textbook">
+                                    <label for="cat-textbook">교과서</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cat-assignment" value="assignment">
+                                    <label for="cat-assignment">과제</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="cat-evaluation" value="evaluation">
+                                    <label for="cat-evaluation">평가</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-top: 1.5rem;">
+                            <h3><i class="fas fa-layer-group"></i> 단원</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="mat-unit1" value="1">
+                                    <label for="mat-unit1">1. 큰 수</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="mat-unit2" value="2">
+                                    <label for="mat-unit2">2. 각도</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="mat-unit3" value="3">
+                                    <label for="mat-unit3">3. 곱셈과 나눗셈</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="mat-unit4" value="4">
+                                    <label for="mat-unit4">4. 삼각형</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="mat-unit5" value="5">
+                                    <label for="mat-unit5">5. 소수</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="mat-unit6" value="6">
+                                    <label for="mat-unit6">6. 관계와 규칙</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-top: 1.5rem;">
+                            <h3><i class="fas fa-signal"></i> 난이도</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="level-high" value="high">
+                                    <label for="level-high">상</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="level-medium" value="medium">
+                                    <label for="level-medium">중</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="level-low" value="low">
+                                    <label for="level-low">하</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-top: 1.5rem;">
+                            <h3><i class="fas fa-sort"></i> 정렬</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="radio" id="sort-latest" name="sort" value="latest" checked>
+                                    <label for="sort-latest">최신순</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="sort-popular" name="sort" value="popular">
+                                    <label for="sort-popular">인기순</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="sort-likes" name="sort" value="likes">
+                                    <label for="sort-likes">좋아요순</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Materials Grid -->
+            <section>
+                <div class="item-grid" id="materials-grid">
+                    <!-- Material Card 1 -->
+                    <div class="item-card" data-category="textbook" data-unit="1" data-level="medium">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-manual">교과서</span>
+                                <span class="badge" style="background-color: var(--yellow); color: var(--gray-900);">중</span>
+                            </div>
+                            <div class="item-title">큰 수의 자릿값 이해하기</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>1단원: 큰 수</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>초등 수학 4-1</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>2025.12.15</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="display: flex; gap: 0.75rem; color: var(--gray-600); font-size: 0.85rem;">
+                                <span><i class="fas fa-heart"></i> 42</span>
+                                <span><i class="fas fa-eye"></i> 156</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="좋아요"><i class="far fa-heart"></i></button>
+                                <button class="icon-btn" title="다운로드"><i class="fas fa-download"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Material Card 2 -->
+                    <div class="item-card" data-category="assignment" data-unit="2" data-level="low">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge" style="background-color: var(--orange); color: var(--white);">과제</span>
+                                <span class="badge" style="background-color: var(--green); color: var(--white);">하</span>
+                            </div>
+                            <div class="item-title">각도 기초 개념 학습지</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>2단원: 각도</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>초등 수학 4-1</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>2025.12.14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="display: flex; gap: 0.75rem; color: var(--gray-600); font-size: 0.85rem;">
+                                <span><i class="fas fa-heart"></i> 35</span>
+                                <span><i class="fas fa-eye"></i> 128</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="좋아요"><i class="far fa-heart"></i></button>
+                                <button class="icon-btn" title="다운로드"><i class="fas fa-download"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Material Card 3 -->
+                    <div class="item-card" data-category="evaluation" data-unit="3" data-level="high">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge" style="background-color: var(--red); color: var(--white);">평가</span>
+                                <span class="badge" style="background-color: var(--red); color: var(--white);">상</span>
+                            </div>
+                            <div class="item-title">곱셈 나눗셈 종합 평가</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>3단원: 곱셈과 나눗셈</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>초등 수학 4-1</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>2025.12.13</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="display: flex; gap: 0.75rem; color: var(--gray-600); font-size: 0.85rem;">
+                                <span><i class="fas fa-heart"></i> 58</span>
+                                <span><i class="fas fa-eye"></i> 214</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="좋아요"><i class="far fa-heart"></i></button>
+                                <button class="icon-btn" title="다운로드"><i class="fas fa-download"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Material Card 4 -->
+                    <div class="item-card" data-category="textbook" data-unit="4" data-level="medium">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-manual">교과서</span>
+                                <span class="badge" style="background-color: var(--yellow); color: var(--gray-900);">중</span>
+                            </div>
+                            <div class="item-title">삼각형의 종류 알아보기</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>4단원: 삼각형</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>초등 수학 4-1</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>2025.12.12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="display: flex; gap: 0.75rem; color: var(--gray-600); font-size: 0.85rem;">
+                                <span><i class="fas fa-heart"></i> 47</span>
+                                <span><i class="fas fa-eye"></i> 189</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="좋아요"><i class="far fa-heart"></i></button>
+                                <button class="icon-btn" title="다운로드"><i class="fas fa-download"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Material Card 5 -->
+                    <div class="item-card" data-category="assignment" data-unit="5" data-level="medium">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge" style="background-color: var(--orange); color: var(--white);">과제</span>
+                                <span class="badge" style="background-color: var(--yellow); color: var(--gray-900);">중</span>
+                            </div>
+                            <div class="item-title">소수의 덧셈과 뺄셈 연습</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>5단원: 소수</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>초등 수학 4-1</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>2025.12.11</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="display: flex; gap: 0.75rem; color: var(--gray-600); font-size: 0.85rem;">
+                                <span><i class="fas fa-heart"></i> 39</span>
+                                <span><i class="fas fa-eye"></i> 142</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="좋아요"><i class="far fa-heart"></i></button>
+                                <button class="icon-btn" title="다운로드"><i class="fas fa-download"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Material Card 6 -->
+                    <div class="item-card" data-category="textbook" data-unit="6" data-level="high">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-manual">교과서</span>
+                                <span class="badge" style="background-color: var(--red); color: var(--white);">상</span>
+                            </div>
+                            <div class="item-title">계산식과 규칙 찾기</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>6단원: 관계와 규칙</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>초등 수학 4-1</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>2025.12.10</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="display: flex; gap: 0.75rem; color: var(--gray-600); font-size: 0.85rem;">
+                                <span><i class="fas fa-heart"></i> 51</span>
+                                <span><i class="fas fa-eye"></i> 198</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="좋아요"><i class="far fa-heart"></i></button>
+                                <button class="icon-btn" title="다운로드"><i class="fas fa-download"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        function uploadMaterial() {
+            alert('자료 업로드 기능은 개발 중입니다.');
+        }
+
+        // Filter functionality
+        const categoryFilters = document.querySelectorAll('input[type="checkbox"][id^="cat-"]');
+        const unitFilters = document.querySelectorAll('input[type="checkbox"][id^="mat-unit"]');
+        const levelFilters = document.querySelectorAll('input[type="checkbox"][id^="level-"]');
+        const materialCards = document.querySelectorAll('#materials-grid .item-card');
+
+        function filterMaterials() {
+            const selectedCategories = Array.from(categoryFilters)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            const selectedUnits = Array.from(unitFilters)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            const selectedLevels = Array.from(levelFilters)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            materialCards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                const cardUnit = card.dataset.unit;
+                const cardLevel = card.dataset.level;
+
+                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(cardCategory);
+                const unitMatch = selectedUnits.length === 0 || selectedUnits.includes(cardUnit);
+                const levelMatch = selectedLevels.length === 0 || selectedLevels.includes(cardLevel);
+
+                if (categoryMatch && unitMatch && levelMatch) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        categoryFilters.forEach(filter => {
+            filter.addEventListener('change', filterMaterials);
+        });
+
+        unitFilters.forEach(filter => {
+            filter.addEventListener('change', filterMaterials);
+        });
+
+        levelFilters.forEach(filter => {
+            filter.addEventListener('change', filterMaterials);
+        });
+
+        // Like button functionality
+        document.querySelectorAll('.icon-btn').forEach(btn => {
+            if (btn.querySelector('.fa-heart')) {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('far')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = 'var(--red)';
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

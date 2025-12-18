@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하하매스 교육 플랫폼 - 홈</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Global Navigation Bar -->
+    <nav class="gnb">
+        <div class="gnb-container">
+            <div class="gnb-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>하하매스</span>
+            </div>
+            <ul class="gnb-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> 홈</a></li>
+                <li><a href="textbook.html"><i class="fas fa-book"></i> 교과서</a></li>
+                <li><a href="assignment.html"><i class="fas fa-tasks"></i> 과제</a></li>
+                <li><a href="evaluation.html"><i class="fas fa-clipboard-check"></i> 평가</a></li>
+                <li><a href="materials.html"><i class="fas fa-folder-open"></i> 수업자료실</a></li>
+            </ul>
+            <div class="gnb-user">
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>hahamath066-t</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Left Section: Recent Lesson & Class Status -->
+            <section class="left-section">
+                <!-- Recent Lesson Card -->
+                <div class="card recent-lesson">
+                    <div class="card-header">
+                        <h2><i class="fas fa-clock"></i> 가장 최근 수업</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="lesson-info">
+                            <div class="lesson-date">
+                                <i class="far fa-calendar-alt"></i>
+                                <span>2025-12-10 22:20:21</span>
+                            </div>
+                            <div class="lesson-title">
+                                <h3>1. 큰 수 > 십만, 백만, 천만을 알아볼까요?</h3>
+                            </div>
+                            <div class="lesson-meta">
+                                <span class="meta-tag"><i class="fas fa-book-open"></i> 초등 수학 4-1</span>
+                                <span class="meta-tag"><i class="fas fa-layer-group"></i> 1단원</span>
+                            </div>
+                            <a href="textbook.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-right"></i> 수업 자료 보기
+                            </a>
+                        </div>
+                        <div class="lesson-thumbnail">
+                            <img src="https://www.genspark.ai/api/files/s/ZHS9qdTF" alt="최근 수업" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22150%22%3E%3Crect fill=%22%234A90E2%22 width=%22200%22 height=%22150%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2218%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%EC%88%98%EC%97%85%20%EC%9E%90%EB%A3%8C%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class Calendar -->
+                <div class="card calendar-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calendar-alt"></i> 우리 반 학습 현황</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="calendar">
+                            <div class="calendar-header">
+                                <button class="calendar-nav" onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+                                <h3 id="calendar-month">2025년 12월</h3>
+                                <button class="calendar-nav" onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <div class="calendar-days">
+                                <div class="day-header">일</div>
+                                <div class="day-header">월</div>
+                                <div class="day-header">화</div>
+                                <div class="day-header">수</div>
+                                <div class="day-header">목</div>
+                                <div class="day-header">금</div>
+                                <div class="day-header">토</div>
+                            </div>
+                            <div class="calendar-grid" id="calendar-grid">
+                                <!-- Calendar days will be generated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="calendar-legend">
+                            <div class="legend-item">
+                                <span class="legend-dot active"></span> 수업 진행
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot assignment"></span> 과제 제출
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot evaluation"></span> 평가 진행
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Leaderboard -->
+                <div class="card leaderboard-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-trophy"></i> 우리 반 학생</h2>
+                        <span class="student-count">총 5명</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="leaderboard">
+                            <div class="student-item rank-1">
+                                <div class="rank-badge"><i class="fas fa-crown"></i> 1</div>
+                                <div class="student-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="student-info">
+                                    <div class="student-name">hahamath066-01</div>
+                                    <div class="student-stats">
+                                        <span><i class="fas fa-heart"></i> 150</span>
+                                        <span><i class="fas fa-check-circle"></i> 24</span>
+                                    </div>
+                                </div>
+                                <div class="student-actions">
+                                    <button class="action-btn" title="상세 보기"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn" title="메시지"><i class="fas fa-comment"></i></button>
+                                </div>
+                            </div>
+                            <div class="student-item rank-2">
+                                <div class="rank-badge">2</div>
+                                <div class="student-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="student-info">
+                                    <div class="student-name">hahamath066-02</div>
+                                    <div class="student-stats">
+                                        <span><i class="fas fa-heart"></i> 142</span>
+                                        <span><i class="fas fa-check-circle"></i> 22</span>
+                                    </div>
+                                </div>
+                                <div class="student-actions">
+                                    <button class="action-btn" title="상세 보기"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn" title="메시지"><i class="fas fa-comment"></i></button>
+                                </div>
+                            </div>
+                            <div class="student-item rank-3">
+                                <div class="rank-badge">3</div>
+                                <div class="student-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="student-info">
+                                    <div class="student-name">hahamath066-03</div>
+                                    <div class="student-stats">
+                                        <span><i class="fas fa-heart"></i> 138</span>
+                                        <span><i class="fas fa-check-circle"></i> 21</span>
+                                    </div>
+                                </div>
+                                <div class="student-actions">
+                                    <button class="action-btn" title="상세 보기"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn" title="메시지"><i class="fas fa-comment"></i></button>
+                                </div>
+                            </div>
+                            <div class="student-item">
+                                <div class="rank-badge">4</div>
+                                <div class="student-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="student-info">
+                                    <div class="student-name">hahamath066-04</div>
+                                    <div class="student-stats">
+                                        <span><i class="fas fa-heart"></i> 130</span>
+                                        <span><i class="fas fa-check-circle"></i> 20</span>
+                                    </div>
+                                </div>
+                                <div class="student-actions">
+                                    <button class="action-btn" title="상세 보기"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn" title="메시지"><i class="fas fa-comment"></i></button>
+                                </div>
+                            </div>
+                            <div class="student-item">
+                                <div class="rank-badge">5</div>
+                                <div class="student-avatar">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="student-info">
+                                    <div class="student-name">hahamath066-05</div>
+                                    <div class="student-stats">
+                                        <span><i class="fas fa-heart"></i> 125</span>
+                                        <span><i class="fas fa-check-circle"></i> 19</span>
+                                    </div>
+                                </div>
+                                <div class="student-actions">
+                                    <button class="action-btn" title="상세 보기"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn" title="메시지"><i class="fas fa-comment"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Section: User Profile & Quick Stats -->
+            <aside class="right-section">
+                <div class="card profile-card">
+                    <div class="card-body">
+                        <div class="profile-header">
+                            <div class="profile-avatar-large">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <h3>hahamath066-t</h3>
+                            <p class="profile-role"><i class="fas fa-chalkboard-teacher"></i> 선생님</p>
+                            <p class="profile-class"><i class="fas fa-school"></i> 1학년별</p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">학생 수</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">진행 중 과제</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">8</div>
+                                <div class="stat-label">예정 평가</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card quick-actions-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bolt"></i> 빠른 작업</h2>
+                    </div>
+                    <div class="card-body">
+                        <button class="quick-action-btn" onclick="location.href='assignment.html'">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>과제 만들기</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="location.href='evaluation.html'">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>평가 만들기</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="location.href='textbook.html'">
+                            <i class="fas fa-book-open"></i>
+                            <span>수업 시작하기</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="location.href='materials.html'">
+                            <i class="fas fa-search"></i>
+                            <span>자료 검색</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="card activities-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bell"></i> 최근 활동</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon assignment-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">hahamath066-01 학생이 과제를 제출했습니다</p>
+                                    <p class="activity-time">5분 전</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon evaluation-icon">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">새로운 평가가 시작되었습니다</p>
+                                    <p class="activity-time">1시간 전</p>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon lesson-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p class="activity-text">수업 자료가 업데이트되었습니다</p>
+                                    <p class="activity-time">2시간 전</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

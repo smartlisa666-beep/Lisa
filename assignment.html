@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하하매스 교육 플랫폼 - 과제</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Global Navigation Bar -->
+    <nav class="gnb">
+        <div class="gnb-container">
+            <div class="gnb-logo" onclick="location.href='index.html'">
+                <i class="fas fa-graduation-cap"></i>
+                <span>하하매스</span>
+            </div>
+            <ul class="gnb-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> 홈</a></li>
+                <li><a href="textbook.html"><i class="fas fa-book"></i> 교과서</a></li>
+                <li><a href="assignment.html" class="active"><i class="fas fa-tasks"></i> 과제</a></li>
+                <li><a href="evaluation.html"><i class="fas fa-clipboard-check"></i> 평가</a></li>
+                <li><a href="materials.html"><i class="fas fa-folder-open"></i> 수업자료실</a></li>
+            </ul>
+            <div class="gnb-user">
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>hahamath066-t</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-tasks"></i>
+                과제 관리
+            </h1>
+            <button class="btn btn-primary" onclick="createNewAssignment()">
+                <i class="fas fa-plus"></i>
+                새로 만들기
+            </button>
+        </div>
+
+        <div class="content-layout">
+            <!-- Filter Sidebar -->
+            <aside class="filter-sidebar">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="filter-group">
+                            <h3><i class="fas fa-filter"></i> 상태</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="radio" id="all" name="status" value="all" checked>
+                                    <label for="all">전체</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="scheduled" name="status" value="scheduled">
+                                    <label for="scheduled">예상</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="ongoing" name="status" value="ongoing">
+                                    <label for="ongoing">진행 중</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="ended" name="status" value="ended">
+                                    <label for="ended">종료</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-top: 1.5rem;">
+                            <h3><i class="fas fa-layer-group"></i> 단원</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="unit1" value="1">
+                                    <label for="unit1">1. 큰 수</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="unit2" value="2">
+                                    <label for="unit2">2. 각도</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="unit3" value="3">
+                                    <label for="unit3">3. 곱셈과 나눗셈</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="unit4" value="4">
+                                    <label for="unit4">4. 삼각형</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="unit6" value="6">
+                                    <label for="unit6">6. 관계와 규칙</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-top: 1.5rem;">
+                            <h3><i class="fas fa-user"></i> 작성자</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="author1" value="hahamath066-t">
+                                    <label for="author1">hahamath066-t</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Assignment List -->
+            <section>
+                <div class="item-grid" id="assignment-grid">
+                    <!-- Assignment Card 1 -->
+                    <div class="item-card" data-status="ongoing" data-unit="6">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ongoing">진행 중</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_6.관계와 규칙_7~8차시_계산식과 규칙을 알아볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.12.10 - 2025.12.20</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-user"></i>
+                                    <span>hahamath066-t</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>제출: 3/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-clock"></i> 4일 남음
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignment Card 2 -->
+                    <div class="item-card" data-status="ongoing" data-unit="4">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ongoing">진행 중</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_4.삼각형_5~6차시_예각삼각형, 둔각삼각형을 알아볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.12.08 - 2025.12.18</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-user"></i>
+                                    <span>hahamath066-t</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>제출: 4/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-clock"></i> 2일 남음
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignment Card 3 -->
+                    <div class="item-card" data-status="scheduled" data-unit="3">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-scheduled">예상</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_3.곱셈과 나눗셈_9~10차시_나눗셈을 해볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.12.25 - 2026.01.05</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-user"></i>
+                                    <span>hahamath066-t</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>제출: 0/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-calendar-check"></i> 8일 후 시작
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignment Card 4 -->
+                    <div class="item-card" data-status="ended" data-unit="2">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ended">종료</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_2.각도_4~5차시_각의 크기를 어림하고 재어 볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.11.25 - 2025.12.05</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-user"></i>
+                                    <span>hahamath066-t</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>제출: 5/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--green); font-size: 0.85rem;">
+                                <i class="fas fa-check-circle"></i> 완료
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignment Card 5 -->
+                    <div class="item-card" data-status="ended" data-unit="1">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ended">종료</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_1.큰 수_1~2차시_십만, 백만, 천만을 알아볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.11.15 - 2025.11.25</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-user"></i>
+                                    <span>hahamath066-t</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>제출: 5/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--green); font-size: 0.85rem;">
+                                <i class="fas fa-check-circle"></i> 완료
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assignment Card 6 -->
+                    <div class="item-card" data-status="ongoing" data-unit="4">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ongoing">진행 중</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_4.삼각형_7~8차시_이등변삼각형을 알아볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.12.12 - 2025.12.22</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-user"></i>
+                                    <span>hahamath066-t</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>제출: 2/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-clock"></i> 5일 남음
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        function createNewAssignment() {
+            alert('새 과제 만들기 기능은 개발 중입니다.');
+        }
+
+        // Filter functionality
+        const statusFilters = document.querySelectorAll('input[name="status"]');
+        const unitFilters = document.querySelectorAll('input[type="checkbox"][id^="unit"]');
+        const assignmentCards = document.querySelectorAll('.item-card');
+
+        function filterAssignments() {
+            const selectedStatus = document.querySelector('input[name="status"]:checked').value;
+            const selectedUnits = Array.from(unitFilters)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            assignmentCards.forEach(card => {
+                const cardStatus = card.dataset.status;
+                const cardUnit = card.dataset.unit;
+
+                const statusMatch = selectedStatus === 'all' || cardStatus === selectedStatus;
+                const unitMatch = selectedUnits.length === 0 || selectedUnits.includes(cardUnit);
+
+                if (statusMatch && unitMatch) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        statusFilters.forEach(filter => {
+            filter.addEventListener('change', filterAssignments);
+        });
+
+        unitFilters.forEach(filter => {
+            filter.addEventListener('change', filterAssignments);
+        });
+    </script>
+</body>
+</html>

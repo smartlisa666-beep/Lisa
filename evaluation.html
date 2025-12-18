@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하하매스 교육 플랫폼 - 평가</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Global Navigation Bar -->
+    <nav class="gnb">
+        <div class="gnb-container">
+            <div class="gnb-logo" onclick="location.href='index.html'">
+                <i class="fas fa-graduation-cap"></i>
+                <span>하하매스</span>
+            </div>
+            <ul class="gnb-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> 홈</a></li>
+                <li><a href="textbook.html"><i class="fas fa-book"></i> 교과서</a></li>
+                <li><a href="assignment.html"><i class="fas fa-tasks"></i> 과제</a></li>
+                <li><a href="evaluation.html" class="active"><i class="fas fa-clipboard-check"></i> 평가</a></li>
+                <li><a href="materials.html"><i class="fas fa-folder-open"></i> 수업자료실</a></li>
+            </ul>
+            <div class="gnb-user">
+                <div class="user-profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>hahamath066-t</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-clipboard-check"></i>
+                평가 관리
+            </h1>
+            <button class="btn btn-primary" onclick="createNewEvaluation()">
+                <i class="fas fa-plus"></i>
+                새로 만들기
+            </button>
+        </div>
+
+        <div class="content-layout">
+            <!-- Filter Sidebar -->
+            <aside class="filter-sidebar">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="filter-group">
+                            <h3><i class="fas fa-filter"></i> 상태</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="radio" id="eval-all" name="eval-status" value="all" checked>
+                                    <label for="eval-all">전체</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="eval-scheduled" name="eval-status" value="scheduled">
+                                    <label for="eval-scheduled">예상</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="eval-ongoing" name="eval-status" value="ongoing">
+                                    <label for="eval-ongoing">진행 중</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="eval-ended" name="eval-status" value="ended">
+                                    <label for="eval-ended">종료</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="radio" id="eval-draft" name="eval-status" value="draft">
+                                    <label for="eval-draft">일시 저장</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-top: 1.5rem;">
+                            <h3><i class="fas fa-robot"></i> 출제 방식</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="ai-generated" value="ai">
+                                    <label for="ai-generated">AI 출제</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="manual-created" value="manual">
+                                    <label for="manual-created">작성 출제</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-top: 1.5rem;">
+                            <h3><i class="fas fa-layer-group"></i> 단원</h3>
+                            <div class="filter-options">
+                                <div class="filter-option">
+                                    <input type="checkbox" id="eval-unit1" value="1">
+                                    <label for="eval-unit1">1. 큰 수</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="eval-unit2" value="2">
+                                    <label for="eval-unit2">2. 각도</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="eval-unit3" value="3">
+                                    <label for="eval-unit3">3. 곱셈과 나눗셈</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="eval-unit4" value="4">
+                                    <label for="eval-unit4">4. 삼각형</label>
+                                </div>
+                                <div class="filter-option">
+                                    <input type="checkbox" id="eval-unit5" value="5">
+                                    <label for="eval-unit5">5. 소수</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Evaluation List -->
+            <section>
+                <div class="item-grid" id="evaluation-grid">
+                    <!-- Evaluation Card 1 -->
+                    <div class="item-card" data-status="ongoing" data-unit="4" data-type="ai">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ai">AI 출제</span>
+                                <span class="badge badge-ongoing">진행 중</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_4.삼각형_2~3차시_삼각형을 분류해 볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.12.15 - 2025.12.20</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>문제 수: 15개</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>응시: 2/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-clock"></i> 3일 남음
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Card 2 -->
+                    <div class="item-card" data-status="ongoing" data-unit="3" data-type="manual">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-manual">작성 출제</span>
+                                <span class="badge badge-ongoing">진행 중</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_3.곱셈과 나눗셈_5~6차시_곱셈을 해볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.12.13 - 2025.12.18</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>문제 수: 20개</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>응시: 4/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-clock"></i> 1일 남음
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Card 3 -->
+                    <div class="item-card" data-status="scheduled" data-unit="5" data-type="ai">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ai">AI 출제</span>
+                                <span class="badge badge-scheduled">예상</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_5.소수_1~2차시_소수를 알아볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.12.23 - 2025.12.30</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>문제 수: 12개</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>응시: 0/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-calendar-check"></i> 6일 후 시작
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Card 4 -->
+                    <div class="item-card" data-status="ended" data-unit="2" data-type="manual">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-manual">작성 출제</span>
+                                <span class="badge badge-ended">종료</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_2.각도_1~2차시_예각과 둔각을 알아볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.11.28 - 2025.12.05</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>문제 수: 18개</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>응시: 5/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--green); font-size: 0.85rem;">
+                                <i class="fas fa-check-circle"></i> 완료 (평균: 85점)
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Card 5 -->
+                    <div class="item-card" data-status="ended" data-unit="1" data-type="ai">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-ai">AI 출제</span>
+                                <span class="badge badge-ended">종료</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_1.큰 수_3~4차시_큰 수의 크기를 비교해 볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2025.11.20 - 2025.11.27</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>문제 수: 16개</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-users"></i>
+                                    <span>응시: 5/5명</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--green); font-size: 0.85rem;">
+                                <i class="fas fa-check-circle"></i> 완료 (평균: 92점)
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="수정"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="상세"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Card 6 -->
+                    <div class="item-card" data-status="draft" data-unit="4" data-type="manual">
+                        <div class="item-card-header">
+                            <div class="item-badges">
+                                <span class="badge badge-manual">작성 출제</span>
+                                <span class="badge" style="background-color: var(--gray-400); color: var(--white);">일시 저장</span>
+                            </div>
+                            <div class="item-title">초등 수학 4-1_1차시별 학습 평가_4.삼각형_9~10차시_정삼각형을 알아볼까요?</div>
+                        </div>
+                        <div class="item-card-body">
+                            <div class="item-meta">
+                                <div class="item-meta-row">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>미설정</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-question-circle"></i>
+                                    <span>문제 수: 8개 (작성 중)</span>
+                                </div>
+                                <div class="item-meta-row">
+                                    <i class="fas fa-save"></i>
+                                    <span>마지막 저장: 2025.12.16</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-card-footer">
+                            <div style="color: var(--gray-600); font-size: 0.85rem;">
+                                <i class="fas fa-edit"></i> 작성 중
+                            </div>
+                            <div class="item-actions">
+                                <button class="icon-btn" title="이어서 작성"><i class="fas fa-pen"></i></button>
+                                <button class="icon-btn" title="삭제"><i class="fas fa-trash"></i></button>
+                                <button class="icon-btn" title="미리보기"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        function createNewEvaluation() {
+            alert('새 평가 만들기 기능은 개발 중입니다.');
+        }
+
+        // Filter functionality
+        const statusFilters = document.querySelectorAll('input[name="eval-status"]');
+        const typeFilters = document.querySelectorAll('input[type="checkbox"][id$="-generated"], input[type="checkbox"][id$="-created"]');
+        const unitFilters = document.querySelectorAll('input[type="checkbox"][id^="eval-unit"]');
+        const evaluationCards = document.querySelectorAll('#evaluation-grid .item-card');
+
+        function filterEvaluations() {
+            const selectedStatus = document.querySelector('input[name="eval-status"]:checked').value;
+            const selectedTypes = Array.from(typeFilters)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            const selectedUnits = Array.from(unitFilters)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            evaluationCards.forEach(card => {
+                const cardStatus = card.dataset.status;
+                const cardType = card.dataset.type;
+                const cardUnit = card.dataset.unit;
+
+                const statusMatch = selectedStatus === 'all' || cardStatus === selectedStatus;
+                const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(cardType);
+                const unitMatch = selectedUnits.length === 0 || selectedUnits.includes(cardUnit);
+
+                if (statusMatch && typeMatch && unitMatch) {
+                    card.style.display = 'block';
+                    card.classList.add('fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        statusFilters.forEach(filter => {
+            filter.addEventListener('change', filterEvaluations);
+        });
+
+        typeFilters.forEach(filter => {
+            filter.addEventListener('change', filterEvaluations);
+        });
+
+        unitFilters.forEach(filter => {
+            filter.addEventListener('change', filterEvaluations);
+        });
+    </script>
+</body>
+</html>
