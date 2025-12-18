@@ -789,8 +789,30 @@ const DiagnosticsModule = {
 };
 
 // ============================================
-// 애플리케이션 초기화
+// 페이지별 함수 (다른 HTML 페이지용)
 // ============================================
+
+/**
+ * 새로운 평가 생성
+ */
+function createNewEvaluation() {
+    try {
+        showToast('새로운 평가 생성 기능은 개발 중입니다.', 'info');
+    } catch (error) {
+        console.error('평가 생성 중 오류:', error);
+    }
+}
+
+/**
+ * 새로운 과제 생성
+ */
+function createNewAssignment() {
+    try {
+        showToast('새로운 과제 생성 기능은 개발 중입니다.', 'info');
+    } catch (error) {
+        console.error('과제 생성 중 오류:', error);
+    }
+}
 /**
  * 애플리케이션 초기화
  */
